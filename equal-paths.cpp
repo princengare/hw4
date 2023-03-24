@@ -13,57 +13,32 @@ int calculateHeightIfBalanced(Node* root);
 
 
 bool equalPaths(Node * root)
-{
-    // Add your code below
-<<<<<<< HEAD
-  int l, r = 0;
-	if (root == nullptr)
-	{
-		return true;
-	}
+ {
+     // Add your code below
+   int l, r = 0;
+ 	if (root == nullptr)
+ 	{
+ 		return true;
+ 	}
 
-	l = calculateHeightIfBalanced(root->left);
-	r = calculateHeightIfBalanced(root->right);
+ 	l = calculateHeightIfBalanced(root->left);
+ 	r = calculateHeightIfBalanced(root->right);
 
-	if ((l == r) || ((l == 1  && r == 0) || (l == 0 && r == 1))) return true;
-
-
-	return false;
-
-}
-
-int calculateHeightIfBalanced(Node* root)
-{
-  if (root == nullptr)
-	{
-		return 0;
-	}
-
-  return 1 + std::max(calculateHeightIfBalanced(root->left), calculateHeightIfBalanced(root->right));
-=======
-    int l, r = 0;
-
-	l = calculateHeightIfBalanced(root->left);
-	r = calculateHeightIfBalanced(root->right);
-
-	if (l == r)
-	{
-		return true;
-	}
+ 	if ((l == r) || ((l == 1  && r == 0) || (l == 0 && r == 1))) return true;
 
 
-	return false;
+ 	return false;
 
-}
+ }
 
-int calculateHeightIfBalanced(Node* root)
-{
-    if (root == nullptr)
-	{
-		return 0;
-	}
-    return 1 + std::max(calculateHeightIfBalanced(root->left), calculateHeightIfBalanced(root->right));
->>>>>>> d6904dcf54fbc6bdfdbef4711fb1f708e0224429
-    
-}
+ int calculateHeightIfBalanced(Node* root)
+ {
+   if (root == nullptr)
+ 	{
+ 		return 0;
+ 	}
+
+   return 1 + std::max(calculateHeightIfBalanced(root->left), calculateHeightIfBalanced(root->right));
+
+ }
 

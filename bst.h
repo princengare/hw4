@@ -309,6 +309,7 @@ BinarySearchTree<Key, Value>::iterator::operator==(
     const BinarySearchTree<Key, Value>::iterator& rhs) const
 {
     // TODO
+    //check iterator key & value with other
 }
 
 /**
@@ -321,6 +322,7 @@ BinarySearchTree<Key, Value>::iterator::operator!=(
     const BinarySearchTree<Key, Value>::iterator& rhs) const
 {
     // TODO
+    //check iterator key & value with other
 
 }
 
@@ -333,6 +335,7 @@ typename BinarySearchTree<Key, Value>::iterator&
 BinarySearchTree<Key, Value>::iterator::operator++()
 {
     // TODO
+    //sets current to left or right by in-order sequence determinant
 
 }
 
@@ -445,6 +448,8 @@ template<class Key, class Value>
 void BinarySearchTree<Key, Value>::insert(const std::pair<const Key, Value> &keyValuePair)
 {
     // TODO
+    //search through bst by height/depth, check value (see if it needs to be overwritten), then insert
+    
 }
 
 
@@ -457,6 +462,7 @@ template<typename Key, typename Value>
 void BinarySearchTree<Key, Value>::remove(const Key& key)
 {
     // TODO
+    //search through bst, check value, check if node has 2 children to swap predecessor, remove
 }
 
 
@@ -466,6 +472,7 @@ Node<Key, Value>*
 BinarySearchTree<Key, Value>::predecessor(Node<Key, Value>* current)
 {
     // TODO
+    //use current to get predecessor, check it to see if it works, and return it, O(1)
 }
 
 
@@ -477,6 +484,7 @@ template<typename Key, typename Value>
 void BinarySearchTree<Key, Value>::clear()
 {
     // TODO
+    //go through all nodes, remove/ clear
 }
 
 
@@ -488,6 +496,7 @@ Node<Key, Value>*
 BinarySearchTree<Key, Value>::getSmallestNode() const
 {
     // TODO
+    //go through height (left of parents), return it
 }
 
 /**
@@ -499,7 +508,9 @@ template<typename Key, typename Value>
 Node<Key, Value>* BinarySearchTree<Key, Value>::internalFind(const Key& key) const
 {
     // TODO
+    //go through height, check for specified key, return it
 }
+
 
 /**
  * Return true iff the BST is balanced.
@@ -508,6 +519,7 @@ template<typename Key, typename Value>
 bool BinarySearchTree<Key, Value>::isBalanced() const
 {
     // TODO
+    //look at lab 9
 }
 
 
