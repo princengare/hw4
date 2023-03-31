@@ -535,21 +535,7 @@ void BinarySearchTree<Key, Value>::insert(const std::pair<const Key, Value> &key
 template<typename Key, typename Value>
 void BinarySearchTree<Key, Value>::remove(const Key& key)
 {
-	Node<Key, Value>* current = root_;
-	Node<Key, Value>* parent = nullptr;
-
-    // Find the node to remove
-    while (current != nullptr) {
-        if (key == current->getKey()) {
-            break;
-        } else if (key < current->getKey()) {
-            parent = current;
-            current = current->getLeft();
-        } else {
-            parent = current;
-            current = current->getRight();
-        }
-    }
+	Node<Key, Value>* current = internalFind(key);
 
     if (current == nullptr) {
         // Node with the given key not found, do nothing
@@ -715,9 +701,9 @@ template<typename Key, typename Value>
 Node<Key, Value>* BinarySearchTree<Key, Value>::internalFind(const Key& key) const
 {
 	Node<Key, Value>* curr = root_;
-    while (curr != NULL)
+    while (curr != nullptr)
     {
-        if (curr->getKey() == key)
+        if (key == curr->getKey())
         {
             return curr;
         }
@@ -725,12 +711,12 @@ Node<Key, Value>* BinarySearchTree<Key, Value>::internalFind(const Key& key) con
         {
             curr = curr->getLeft();
         }
-        else
+        else if (key > curr->getKey())
         {
             curr = curr->getRight();
         }
     }
-    return NULL;
+    return nullptr;
     // TODO
     //go through height, check for specified key, return it
 }

@@ -45,5 +45,52 @@ int main(int argc, char *argv[])
     cout << "Erasing b" << endl;
     at.remove('b');
 
+	AVLTree<int, double> bst;
+	bst.insert(std::make_pair(2, 1.0));
+	bst.insert(std::make_pair(3, 1.0));
+	bst.insert(std::make_pair(1, 1.0));
+	bst.insert(std::make_pair(4, 1.0));
+
+	cout << "\nAVLTree contents:" << endl;
+    for(AVLTree<int,double>::iterator it = bst.begin(); it != bst.end(); ++it) {
+        cout << it->first << " " << it->second << endl;
+    }
+    if(bst.find(1) != bst.end()) {
+        cout << "Found 1" << endl;
+				cout << "Erasing 1" << endl;
+				bst.remove(1);
+    }
+    else {
+        cout << "Did not find 1" << endl;
+    }
+
+		cout << "\nAVLTree contents:" << endl;
+    for(AVLTree<int,double>::iterator it = bst.begin(); it != bst.end(); ++it) {
+        cout << it->first << " " << it->second << endl;
+    }
+
+		/*AVLTree<int, double> bst;
+	bst.insert(std::make_pair(2, 1.0));
+	bst.insert(std::make_pair(1, 1.0));
+	bst.insert(std::make_pair(3, 1.0));
+
+	cout << "\nAVLTree contents:" << endl;
+    for(AVLTree<int,double>::iterator it = bst.begin(); it != bst.end(); ++it) {
+        cout << it->first << " " << it->second << endl;
+    }
+    if(bst.find(2) != bst.end()) {
+        cout << "Found 2" << endl;
+				cout << "Erasing 2" << endl;
+				bst.remove(2);
+    }
+    else {
+        cout << "Did not find 2" << endl;
+    }
+
+		cout << "\nAVLTree contents:" << endl;
+    for(AVLTree<int,double>::iterator it = bst.begin(); it != bst.end(); ++it) {
+        cout << it->first << " " << it->second << endl;
+		} */
+
     return 0;
 }
