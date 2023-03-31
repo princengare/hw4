@@ -555,14 +555,14 @@ void BinarySearchTree<Key, Value>::remove(const Key& key)
 				root_ = nullptr;
 			}
 			else{
-			if (current->getParent()->getLeft() == current)
-			{
-				current->getParent()->setLeft(nullptr);
-			}
-			else
-			{
-				current->getParent()->setRight(nullptr);
-			}
+				if (current->getParent()->getLeft() == current)
+				{
+					current->getParent()->setLeft(nullptr);
+				}
+				else
+				{
+					current->getParent()->setRight(nullptr);
+				}
 			}
 			delete current;
 			current = nullptr;
@@ -572,7 +572,12 @@ void BinarySearchTree<Key, Value>::remove(const Key& key)
 			if (current == root_)
 			{
 				root_= current->getLeft();
+				current->getLeft()->setParent(nullptr);
 				current->setParent(nullptr);
+				current->setRight(nullptr);
+				current->setLeft(nullptr);
+				delete current;
+				current = nullptr;
 				return;
 			}
 			/*
@@ -602,7 +607,12 @@ void BinarySearchTree<Key, Value>::remove(const Key& key)
 			if (current == root_)
 			{
 				root_ = current->getRight();
+				current->getRight()->setParent(nullptr);
 				current->setParent(nullptr);
+				current->setRight(nullptr);
+				current->setLeft(nullptr);
+				delete current;
+				current = nullptr;
 				return;
 			}
 			Node<Key, Value> *par = current->getParent();
@@ -638,6 +648,7 @@ BinarySearchTree<Key, Value>::predecessor(Node<Key, Value>* current)
         }
         return pred;
     }
+		else{
         // case 2: left subtree is empty
         Node<Key, Value>* parent = current->getParent();
         while (parent != nullptr && current == parent->getLeft()) {
@@ -645,6 +656,7 @@ BinarySearchTree<Key, Value>::predecessor(Node<Key, Value>* current)
             parent = parent->getParent();
         }
         return parent;
+	}
     // TODO
     //use current to get predecessor, check it to see if it works, and return it, O(1)
 }
@@ -658,6 +670,7 @@ template<typename Key, typename Value>
 void BinarySearchTree<Key, Value>::clear()
 {
 		deleteAll(root_);
+		// delete root_;
     root_ = nullptr;
     // TODO
     //go through all nodes, remove/ clear
@@ -673,6 +686,7 @@ void BinarySearchTree<Key, Value>::deleteAll (Node<Key, Value>* root)
         delete root;
 				root = nullptr;
     }
+		else return;
 }
 
 
